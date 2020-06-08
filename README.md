@@ -81,35 +81,35 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 ### 4.1. Web services <a id="chapter-4-1"></a>
 
-- apache
-- nginx
-- varnish
+- [ ] apache
+- [x] nginx
+- [ ] varnish
 
 ### 4.2. DataBase services <a id="chapter-4-2"></a>
 
-- mariadb
-- mysql
-- posgrre
-- sqlite3
+- [ ] mariadb
+- [ ] mysql
+- [ ] posgrre
+- [ ] sqlite3
 
 ### 4.3. KV & MQ services <a id="chapter-4-3"></a>
 
-- beanstalkd
-- memcached
-- redis
-- rabbitmq
+- [ ] beanstalkd
+- [ ] memcached
+- [ ] redis
+- [ ] rabbitmq
 
 ### 4.4. PHP & extensions <a id="chapter-4-4"></a>
 
-- php-cli
-- php-fpm
-- swoole
-- xdebug
-- xhprof
-- composer
+- [ ] php-cli
+- [ ] php-fpm
+- [ ] swoole
+- [ ] xdebug
+- [ ] xhprof
+- [ ] composer
 
 ### 4.5. Misc <a id="chapter-4-5"></a>
 
-- git
-- vsftpd
-- nodejs (with yarn, n, gulp, grunt, vue-cli)
+- [x] git
+- [ ] vsftpd
+- [ ] nodejs (with yarn, n, gulp, grunt, vue-cli)
