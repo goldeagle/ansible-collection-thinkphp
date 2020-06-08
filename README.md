@@ -13,10 +13,11 @@ Ansible collections for thinkphp (v6.x) framework
   2.2. [Supported OSs](#chapter-2-3)
 1. [Quick Start](#chapter-3)
 2. [Software Lists](#chapter-4)<br>
-  4.1. [prodcution server](#chapter-4-1)<br>
-  4.2. [development desktop](#chapter-4-2)<br>
-  4.3. [think-metrics](#chapter-4-3)<br>
-  4.4. [think-tidb](#chapter-4-4)
+  4.1. [Web services](#chapter-4-1)<br>
+  4.2. [DataBase services](#chapter-4-2)<br>
+  4.3. [KV & MQ services](#chapter-4-3)<br>
+  4.4. [PHP & extensions](#chapter-4-4)
+  4.5. [Misc](#chapter-4-4)
 
 ## 1. Description <a id="chapter-1"></a>
 
@@ -78,27 +79,27 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 ## 4. Software Lists <a id="chapter-4"></a>
 
-### Web services
+### 4.1. Web services <a id="chapter-4-1"></a>
 
 - apache
 - nginx
 - varnish
 
-### DataBase services
+### 4.2. DataBase services <a id="chapter-4-2"></a>
 
 - mariadb
 - mysql
 - posgrre
 - sqlite3
 
-### KV & MQ services
+### 4.3. KV & MQ services <a id="chapter-4-3"></a>
 
 - beanstalkd
 - memcached
 - redis
 - rabbitmq
 
-### PHP & extensions
+### 4.4. PHP & extensions <a id="chapter-4-4"></a>
 
 - php-cli
 - php-fpm
@@ -107,7 +108,7 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 - xhprof
 - composer
 
-### Misc
+### 4.5. Misc <a id="chapter-4-5"></a>
 
 - git
 - vsftpd
