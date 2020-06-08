@@ -1,0 +1,31 @@
+---
+namespace: goldeagle
+name: thinkphp
+description: Ansible collection for thinkphp, with nginx/php-fpm/swoole/mariadb 
+version: "0.1.1"
+readme: README.md
+authors:
+  - Bison 'goldeagle' fan(bison@bitseed.cn)
+dependencies: { }
+license-file: LICENSE
+tags:
+  - php
+  - apache
+  - lamp
+  - nginx
+  - thinkphp
+  - debian
+  - ubuntu
+  - centos
+  - kali
+  - linux
+  - rhel
+  - fedora
+repository: https://github.com/goldeagle/ansible-collections-thinkphp
+documentation: https://github.com/goldeagle/ansible-collections-thinkphp
+homepage: "https://github.com/goldeagle/ansible-collections-thinkphp"
+issues: https://github.com/goldeagle/ansible-collections-thinkphp/issues
+build_ignore:
+  - scripts
+  - tests
+  - .DS_Store

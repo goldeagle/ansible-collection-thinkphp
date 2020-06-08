@@ -54,18 +54,24 @@ $ apt get ansbile
 $ brew install ansbile
 ```
 
-then run it:
+Install this collection:
 ```bash
 $ ansible-galaxy collection install goldeagle.thinkphp
 ```
 
-Then you can use the roles from the collection in your playbooks:
+Then you can use the roles from the collection in your playbooks (playbook.yml etc.):
 
 ```yaml
     ---
-    - hosts: all
-    
-      collections:
+    - hosts: ls
+      remote_user: {{your_ansible_user}}
+      become: yes
+      become_method: sudo
+
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
+
+      collections: 
         - goldeagle.thinkphp
     
       roles:
@@ -73,6 +79,12 @@ Then you can use the roles from the collection in your playbooks:
         - role: php-versions
           vars:
             php_version: '7.4'
+```
+
+Run the playbook:
+
+```bash
+$ ansible-playbook -i <your_hosts_file> playbook.yml -K
 ```
 
 Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thinkphp-tech/ansible)
@@ -101,8 +113,8 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 ### 4.4. PHP & extensions <a id="chapter-4-4"></a>
 
-- [ ] php-cli
-- [ ] php-fpm
+- [x] php-cli
+- [x] php-fpm
 - [ ] swoole
 - [ ] xdebug
 - [ ] xhprof
@@ -111,5 +123,5 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 ### 4.5. Misc <a id="chapter-4-5"></a>
 
 - [x] git
-- [ ] vsftpd
+- [x] vsftpd
 - [ ] nodejs (with yarn, n, gulp, grunt, vue-cli)
