@@ -16,7 +16,7 @@ Ansible collections for thinkphp (v6.x) framework
   4.1. [Web services](#chapter-4-1)<br>
   4.2. [DataBase services](#chapter-4-2)<br>
   4.3. [KV & MQ services](#chapter-4-3)<br>
-  4.4. [PHP & extensions](#chapter-4-4)
+  4.4. [PHP & extensions](#chapter-4-4)<br>
   4.5. [Misc](#chapter-4-4)
 
 ## 1. Description <a id="chapter-1"></a>
