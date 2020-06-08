@@ -7,13 +7,12 @@ Ansible collections for thinkphp (v6.x) framework
 <img src="https://img.shields.io/github/last-commit/goldeagle/ansible-collections-thinkphp?style=flat-square">
 
 ## Table of Contents
-1. [Description](#chaptoer-1)
-2. [Technical Overview](#chaptoer-2)<br>
+1. [Description](#chapter-1)
+2. [Technical Overview](#chapter-2)<br>
   2.1. [Supported Stages](#chapter-2-1)<br>
-  2.2. [Supported Statements](#chapter-2-2)<br>
-  2.3. [Supported OSs](#chapter-2-3)
-3. [Quick Start](#chaptoer-3)
-4. [Software Lists](#chaptoer-4)<br>
+  2.2. [Supported OSs](#chapter-2-3)
+1. [Quick Start](#chapter-3)
+2. [Software Lists](#chapter-4)<br>
   4.1. [prodcution server](#chapter-4-1)<br>
   4.2. [development desktop](#chapter-4-2)<br>
   4.3. [think-metrics](#chapter-4-3)<br>
@@ -30,12 +29,7 @@ Ansible collections for thinkphp (v6.x) framework
 * lnmp - basically server side softwares
 * swoole - server side softwares with swoole extension
 
-### 2.2. Support Statements  <a id="chapter-2-2"></a>
-
-* prd - production
-* dev - developemnt
-
-### 2.3. Tested OSs  <a id="chapter-2-3"></a>
+### 2.2. Tested OSs  <a id="chapter-2-3"></a>
 
 * [ ] Debian
 * [x] Ubuntu
@@ -61,19 +55,60 @@ $ brew install ansbile
 
 then run it:
 ```bash
-$ ansible-playbook {{site.yml}}
+$ ansible-galaxy collection install goldeagle.thinkphp
 ```
+
+Then you can use the roles from the collection in your playbooks:
+
+```yaml
+    ---
+    - hosts: all
+    
+      collections:
+        - goldeagle.thinkphp
+    
+      roles:
+        - php
+        - role: php-versions
+          vars:
+            php_version: '7.4'
+```
+
+Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thinkphp-tech/ansible)
 
 ## 4. Software Lists <a id="chapter-4"></a>
 
-### 4.1. production server
-see: [here](./lnmp-dev-debian/README.md)
+### Web services
 
-### 4.2. development desktop
-see: [here](./lnmp-prd-debian/README.md)
+- apache
+- nginx
+- varnish
 
-### 4.3. think-metrics
-see: [here](./swoole-dev-debian/README.md)
+### DataBase services
 
-### 4.1. think-tidb
-see: [here](./swoole-prd-debian/README.md)
+- mariadb
+- mysql
+- posgrre
+- sqlite3
+
+### KV & MQ services
+
+- beanstalkd
+- memcached
+- redis
+- rabbitmq
+
+### PHP & extensions
+
+- php-cli
+- php-fpm
+- swoole
+- xdebug
+- xhprof
+- composer
+
+### Misc
+
+- git
+- vsftpd
+- nodejs (with yarn, n, gulp, grunt, vue-cli)
