@@ -5,9 +5,9 @@ description: Ansible collection for thinkphp, with nginx/php-fpm/swoole/mariadb
 version: "0.1.1"
 readme: README.md
 authors:
-  - Bison 'goldeagle' fan(bison@bitseed.cn)
+  - Bison 'goldeagle' Fan(bison@bitseed.cn)
 dependencies: { }
-license-file: LICENSE
+license_file: LICENSE
 tags:
   - php
   - apache
