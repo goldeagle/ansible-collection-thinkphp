@@ -2,8 +2,9 @@
 
 Ansible collections for thinkphp (v6.x) framework
 
-[<img src="https://img.shields.io/github/license/goldeagle/ansible-collections-thinkphp?style=for-the-badge">](./LICENSE)
-<img src="https://img.shields.io/github/repo-size/goldeagle/ansible-collections-thinkphp?style=for-the-badge">
+[<img src="https://img.shields.io/github/license/goldeagle/ansible-collections-thinkphp?style=flat-square">](./LICENSE)
+<img src="https://img.shields.io/github/repo-size/goldeagle/ansible-collections-thinkphp?style=flat-square">
+<img src="https://img.shields.io/github/last-commit/goldeagle/ansible-collections-thinkphp?style=flat-square">
 
 ## Table of Contents
 1. [Description](#chaptoer-1)
