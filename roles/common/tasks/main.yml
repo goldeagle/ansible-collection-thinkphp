@@ -1,0 +1,19 @@
+---
+
+- name: Install common softwares with update apt
+  apt: 
+    pkg: [
+      "byobu",
+      "tmux",
+      "htop",
+      "iftop",
+      "dstat",
+      "iotop",
+      "multitail",
+      "net-tools",
+      "unzip",
+      "vim",
+      "zsh"
+    ]
+    update_cache: yes
+    state: present

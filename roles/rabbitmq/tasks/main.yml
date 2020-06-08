@@ -1,0 +1,6 @@
+---
+
+- name: Install rabbitmq
+  apt:
+    pkg: rabbitmq
+    state: present

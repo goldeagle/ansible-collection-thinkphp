@@ -1,0 +1,6 @@
+---
+
+- name: Install vsftpd
+  apt:
+    pkg: vsftpd
+    state: present
