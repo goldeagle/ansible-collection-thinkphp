@@ -1,6 +1,6 @@
 ---
 
-- name: Install beanstalkd
+- name: Install docker
   apt: 
-    pkg: beanstalkd 
+    pkg: docker 
     state: present
