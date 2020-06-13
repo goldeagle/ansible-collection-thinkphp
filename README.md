@@ -9,7 +9,7 @@ Ansible collections for thinkphp (v6.x) framework
 ## Table of Contents
 1. [Description](#chapter-1)
 2. [Technical Overview](#chapter-2)<br>
-  2.1. [Supported Stages](#chapter-2-1)<br>
+  2.1. [PHP Extensions & Tools](#chapter-2-1)<br>
   2.2. [Supported OSs](#chapter-2-3)
 1. [Quick Start](#chapter-3)
 2. [Software Lists](#chapter-4)<br>
@@ -21,20 +21,20 @@ Ansible collections for thinkphp (v6.x) framework
 
 ## 1. Description <a id="chapter-1"></a>
 
-
+Ansible collections for thinkphp (v6.x) framework, with swoole & pecl & composer installation.
 
 ## 2. Technical Overview <a id="chapter-2"></a>
 
-### 2.1. Supported Stages  <a id="chapter-2-1"></a>
+### 2.1. PHP Extensions & Tools <a id="chapter-2-1"></a>
 
-* lnmp - basically server side softwares
 * swoole - server side softwares with swoole extension
+* composer -composer.phar
 
 ### 2.2. Tested OSs  <a id="chapter-2-3"></a>
 
-* [ ] Debian
+* [x] Debian
 * [x] Ubuntu
-* [ ] Kali
+* [x] Kali
 * [ ] CentOS
 * [ ] Fedora
 * [ ] Gentoo
@@ -43,7 +43,9 @@ Ansible collections for thinkphp (v6.x) framework
 
 ## 3. Quick Start  <a id="chapter-3"></a>
 
-First of all, download "ansbile"
+### 3.1. Install ansible
+
+First of all, install "ansbile"
 - Linux:
 ```bash
 $ apt get ansbile
@@ -54,10 +56,38 @@ $ apt get ansbile
 $ brew install ansbile
 ```
 
+### 3.2. Add a user for ansible
+
+Add user:
+```bash
+$ useradd tp-deploy -m -G users,sudo -s /bin/bash
+$ passwd
+$ mkdir -p ~/.ssh
+```
+
+Generate ssh key pair
+```bash
+$ ssh-keygen -t rsa -b 4096 -C "tp-deploy"
+```
+
+Deploy the pub key:
+```bash
+$ scp .ssh/id_rsa.pub tp-deploy@{{target_host}}:~/.ssh/authorized_keys
+```
+
+Test it:
+```bash
+$ ssh -T tp-deploy@{{target_host}}
+```
+
+### 3.3. Install this collection
+
 Install this collection:
 ```bash
 $ ansible-galaxy collection install goldeagle.thinkphp
 ```
+
+### 3.4. Create a playbook file to use the collection
 
 Then you can use the roles from the collection in your playbooks (playbook.yml etc.):
 
@@ -108,14 +138,14 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 - [ ] beanstalkd
 - [ ] memcached
-- [ ] redis
+- [x] redis
 - [ ] rabbitmq
 
 ### 4.4. PHP & extensions <a id="chapter-4-4"></a>
 
 - [x] php-cli
 - [x] php-fpm
-- [ ] swoole
+- [x] swoole
 - [ ] xdebug
 - [ ] xhprof
 - [ ] composer

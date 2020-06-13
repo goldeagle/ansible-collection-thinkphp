@@ -1,4 +1,10 @@
 ---
+- name: Update && upgrade full packages
+  apt:
+    upgrade: full
+    update_cache: yes
+    autoremove: yes
+    autoclean: yes
 
 - name: Install common softwares with update apt
   apt:
@@ -16,5 +22,4 @@
       "vim",
       "zsh"
     ]
-    update_cache: yes
     state: present
