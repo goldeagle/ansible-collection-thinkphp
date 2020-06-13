@@ -2,7 +2,7 @@
 namespace: goldeagle
 name: thinkphp
 description: Ansible collection for thinkphp, with nginx/php-fpm/swoole/mariadb 
-version: "0.1.1"
+version: "0.1.2"
 readme: README.md
 authors:
   - Bison 'goldeagle' Fan(bison@bitseed.cn)
@@ -14,6 +14,7 @@ tags:
   - lamp
   - nginx
   - thinkphp
+  - swoole
   - debian
   - ubuntu
   - centos
