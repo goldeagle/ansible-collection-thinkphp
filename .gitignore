@@ -113,3 +113,4 @@ GitHub.sublime-settings
 
 /.test.yml
 /goldeagle-thinkphp-*.tar.gz
+.DS_Store

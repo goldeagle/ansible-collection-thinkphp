@@ -1,5 +1,5 @@
 ---
-- name: Install php-fpm and extensions
+- name: Install php-fpm and embeded extensions
   apt:
     pkg: [
       "php{{ php_version }}",
@@ -14,3 +14,46 @@
       "php{{ php_version }}-zip"
     ]
     state: present
+
+- name: Check if Composer is installed.
+  stat: 
+    path: "/usr/local/bin/composer.phar"
+  register: composer_bin
+  when: php_install_composer
+
+- name: Install composer
+  get_url:
+    url: "https://getcomposer.org/download/{{ composer_version }}/composer.phar"
+    dest: "/usr/local/bin"
+    mode: 0755
+  when: 
+    - php_install_composer
+    - not composer_bin.stat.exists
+
+- name: Install pecl
+  apt:
+    pkg: [
+      "php{{ php_version }}-dev",
+      "php-pear"
+    ]
+    state: present
+  when: php_install_pecl
+
+- name: Install Swoole
+  shell: "yes '' | pecl install swoole"
+  register: swoole_result
+  changed_when: swoole_result is succeeded
+  failed_when: "not (('already installed' in swoole_result.stdout) or ('install ok:' in swoole_result.stdout))"
+  when: php_install_swoole
+
+- name: Enable swoole with php-cli & php-fpm
+  copy:
+    src: 20-swoole.ini
+    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d"
+    mode: "0777"
+  loop:
+      - cli
+      - fpm
+  notify:
+    - restart php{{ php_version }}-fpm
+  when: php_install_swoole

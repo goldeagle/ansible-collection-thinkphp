@@ -10,7 +10,14 @@ None.
 
 ## Role Variables
 
-NONE
+### Global vars in playbooks
+php_install_composer: true | false - install composer.phar or not
+php_install_pecl: true | false - install pecl & php-dev or not (Required by swoole)
+php_install_swoole: true | false - install swoole extension or not
+
+### Role vars
+php_version: 7.4 - define php version
+composer_version - define composer version
 
 ## Dependencies
 

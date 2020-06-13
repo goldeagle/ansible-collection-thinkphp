@@ -8,6 +8,7 @@
       "htop",
       "iftop",
       "dstat",
+      "hdparm",
       "iotop",
       "multitail",
       "net-tools",
