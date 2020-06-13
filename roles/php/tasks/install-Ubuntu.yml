@@ -16,7 +16,7 @@
     state: present
 
 - name: Check if Composer is installed.
-  stat: 
+  stat:
     path: "/usr/local/bin/composer.phar"
   register: composer_bin
   when: php_install_composer
@@ -26,7 +26,7 @@
     url: "https://getcomposer.org/download/{{ composer_version }}/composer.phar"
     dest: "/usr/local/bin"
     mode: 0755
-  when: 
+  when:
     - php_install_composer
     - not composer_bin.stat.exists
 

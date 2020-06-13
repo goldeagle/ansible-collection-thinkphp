@@ -1,6 +1,6 @@
 ---
 
 - name: Install docker
-  apt: 
-    pkg: docker 
+  apt:
+    pkg: docker
     state: present

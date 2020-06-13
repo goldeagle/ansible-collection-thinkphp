@@ -1,7 +1,7 @@
 ---
 
 - name: Install common softwares with update apt
-  apt: 
+  apt:
     pkg: [
       "byobu",
       "tmux",
