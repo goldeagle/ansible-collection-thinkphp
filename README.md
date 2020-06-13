@@ -28,7 +28,7 @@ Ansible collections for thinkphp (v6.x) framework, with swoole & pecl & composer
 ### 2.1. PHP Extensions & Tools <a id="chapter-2-1"></a>
 
 * swoole - server side softwares with swoole extension
-* composer -composer.phar
+* composer - composer.phar
 
 ### 2.2. Tested OSs  <a id="chapter-2-3"></a>
 
@@ -39,7 +39,6 @@ Ansible collections for thinkphp (v6.x) framework, with swoole & pecl & composer
 * [ ] Fedora
 * [ ] Gentoo
 * [ ] MacOS
-* [ ] Windows
 
 ## 3. Quick Start  <a id="chapter-3"></a>
 
@@ -60,24 +59,24 @@ $ brew install ansbile
 
 Add user:
 ```bash
-$ useradd tp-deploy -m -G users,sudo -s /bin/bash
+$ useradd {{ your_ansible_user }}-m -G users,sudo -s /bin/bash
 $ passwd
 $ mkdir -p ~/.ssh
 ```
 
-Generate ssh key pair
+Generate ssh key pair:
 ```bash
-$ ssh-keygen -t rsa -b 4096 -C "tp-deploy"
+$ ssh-keygen -t rsa -b 4096 -C "{{ your_ansible_user }}"
 ```
 
 Deploy the pub key:
 ```bash
-$ scp .ssh/id_rsa.pub tp-deploy@{{target_host}}:~/.ssh/authorized_keys
+$ scp .ssh/id_rsa.pub {{ your_ansible_user }}@{{ target_host }}:~/.ssh/authorized_keys
 ```
 
 Test it:
 ```bash
-$ ssh -T tp-deploy@{{target_host}}
+$ ssh -T {{ your_ansible_user }}@{{ target_host }}
 ```
 
 ### 3.3. Install this collection
@@ -92,23 +91,29 @@ $ ansible-galaxy collection install goldeagle.thinkphp
 Then you can use the roles from the collection in your playbooks (playbook.yml etc.):
 
 ```yaml
-    ---
-    - hosts: ls
-      remote_user: {{your_ansible_user}}
-      become: yes
-      become_method: sudo
+---
 
-      vars:
-        ansible_python_interpreter: /usr/bin/python3
+- name : configure and deploy the local servers and app codes
+  hosts: {{ your_host_group}}
+  remote_user: {{ your_ansible_user }}
+  become: yes
+  become_method: sudo
 
-      collections: 
-        - goldeagle.thinkphp
-    
-      roles:
-        - php
-        - role: php-versions
-          vars:
-            php_version: '7.4'
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    php_install_composer: true
+    php_install_pecl: true
+    php_install_swoole: true
+
+  collections:
+    - goldeagle.thinkphp
+
+  roles:
+    - common
+    - nginx
+    - php
+    - redis
+    - git
 ```
 
 Run the playbook:
@@ -131,7 +136,7 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 - [ ] mariadb
 - [ ] mysql
-- [ ] posgrre
+- [ ] postgre
 - [ ] sqlite3
 
 ### 4.3. KV & MQ services <a id="chapter-4-3"></a>
@@ -148,7 +153,7 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 - [x] swoole
 - [ ] xdebug
 - [ ] xhprof
-- [ ] composer
+- [x] composer
 
 ### 4.5. Misc <a id="chapter-4-5"></a>
 
