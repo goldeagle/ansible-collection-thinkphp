@@ -135,9 +135,9 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 ### 4.2. DataBase services <a id="chapter-4-2"></a>
 
 - [ ] mariadb
-- [ ] mysql
+- [x] mysql
 - [ ] postgre
-- [ ] sqlite3
+- [x] sqlite3
 
 ### 4.3. KV & MQ services <a id="chapter-4-3"></a>
 

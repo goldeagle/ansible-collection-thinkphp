@@ -1,0 +1,9 @@
+---
+
+- name: Install Mysql package
+  apt:
+    pkg: "mysql-server"
+    state: present
+    update_cache: yes
+    autoremove: yes
+    autoclean: yes

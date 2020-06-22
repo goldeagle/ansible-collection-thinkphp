@@ -1,0 +1,9 @@
+---
+
+- name: Install Mariadb package
+  apt:
+    pkg: "mariadb-server"
+    state: present
+    update_cache: yes
+    autoremove: yes
+    autoclean: yes
