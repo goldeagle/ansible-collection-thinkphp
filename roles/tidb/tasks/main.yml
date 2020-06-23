@@ -1,0 +1,27 @@
+---
+
+- name: Install tiup
+  get_url:
+    url: "https://tiup-mirrors.pingcap.com/tiup-linux-amd64.tar.gz"
+    dest: "/tmp/tiup.tar.gz"
+    mode: 0755
+
+
+- name: Make tiup home dir
+  file:
+    path: "/home/{{ tiup_user }}/.tiup/bin"
+    state: "directory"
+    mode: "0755"
+
+- name: Unpress tiup
+  unarchive:
+    src: "/tmp/tiup.tar.gz"
+    dest: "/home/{{ tiup_user }}/.tiup/bin"
+    mode: "0755"
+    copy: no
+ 
+- name: Copy json file
+  copy:
+    src: root.json
+    dest: "/home/{{ tiup_user }}/.tiup/bin/root.json"
+    mode: "0644"

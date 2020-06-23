@@ -1,0 +1,7 @@
+---
+# Handler to handle DB tier notifications
+
+- name: restart rabbitmq
+  service:
+    name: rabbitmq-server
+    state: restarted

@@ -1,10 +1,10 @@
-# Ansible Collections - goldeagle.thinkphp
+# Ansible Collections - thinkphp_tech.thinkphp
 
 Ansible collections for thinkphp (v6.x) framework
 
-[<img src="https://img.shields.io/github/license/goldeagle/ansible-collections-thinkphp?style=flat-square">](./LICENSE)
-<img src="https://img.shields.io/github/repo-size/goldeagle/ansible-collections-thinkphp?style=flat-square">
-<img src="https://img.shields.io/github/last-commit/goldeagle/ansible-collections-thinkphp?style=flat-square">
+[<img src="https://img.shields.io/github/license/thinkphp-tech/ansible-collection-thinkphp?style=flat-square">](./LICENSE)
+<img src="https://img.shields.io/github/repo-size/thinkphp-tech/ansible-collection-thinkphp?style=flat-square">
+<img src="https://img.shields.io/github/last-commit/thinkphp-tech/ansible-collection-thinkphp?style=flat-square">
 
 ## Table of Contents
 1. [Description](#chapter-1)
@@ -83,7 +83,7 @@ $ ssh -T {{ your_ansible_user }}@{{ target_host }}
 
 Install this collection:
 ```bash
-$ ansible-galaxy collection install goldeagle.thinkphp
+$ ansible-galaxy collection install thinkphp_tech.thinkphp
 ```
 
 ### 3.4. Create a playbook file to use the collection
@@ -106,7 +106,7 @@ Then you can use the roles from the collection in your playbooks (playbook.yml e
     php_install_swoole: true
 
   collections:
-    - goldeagle.thinkphp
+    - thinkphp_tech.thinkphp
 
   roles:
     - common
@@ -130,21 +130,22 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 - [ ] apache
 - [x] nginx
-- [ ] varnish
+- [x] varnish
 
 ### 4.2. DataBase services <a id="chapter-4-2"></a>
 
-- [ ] mariadb
+- [x] mariadb
 - [x] mysql
 - [ ] postgre
 - [x] sqlite3
+- [x] tidb
 
 ### 4.3. KV & MQ services <a id="chapter-4-3"></a>
 
-- [ ] beanstalkd
-- [ ] memcached
+- [x] beanstalkd
+- [x] memcached
 - [x] redis
-- [ ] rabbitmq
+- [x] rabbitmq
 
 ### 4.4. PHP & extensions <a id="chapter-4-4"></a>
 
