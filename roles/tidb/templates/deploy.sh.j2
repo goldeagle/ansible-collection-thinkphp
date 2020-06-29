@@ -1,2 +1,2 @@
 #!/bin/sh
-./tiup cluster deploy {{ tidb_cluster_name }} {{ tidb_version }} ./deploy.yaml --user root -p
+./tiup cluster deploy {{ tidb_cluster_name }} {{ tidb_version }} ./deploy.yaml --user {{ tidb_user }} -p

@@ -1,4 +1,4 @@
-# Ansible Collections - thinkphp_tech.thinkphp
+# Ansible Collections - thinkphp_tech.thinkphp | [中文](README_zh.md)
 
 Ansible collections for thinkphp (v6.x) framework
 
@@ -28,7 +28,8 @@ Ansible collections for thinkphp (v6.x) framework, with swoole & pecl & composer
 ### 2.1. PHP Extensions & Tools <a id="chapter-2-1"></a>
 
 * swoole - server side softwares with swoole extension
-* composer - composer.phar
+* pecl - php extension community library
+* composer - php package tool
 
 ### 2.2. Tested OSs  <a id="chapter-2-3"></a>
 
@@ -44,15 +45,15 @@ Ansible collections for thinkphp (v6.x) framework, with swoole & pecl & composer
 
 ### 3.1. Install ansible
 
-First of all, install "ansbile"
+First of all, install "ansible"
 - Linux:
 ```bash
-$ apt get ansbile
+$ apt install ansible
 ```
 
 - MacOS:
 ```bash
-$ brew install ansbile
+$ brew install ansible
 ```
 
 ### 3.2. Add a user for ansible
@@ -94,8 +95,8 @@ Then you can use the roles from the collection in your playbooks (playbook.yml e
 ---
 
 - name : configure and deploy the local servers and app codes
-  hosts: {{ your_host_group}}
-  remote_user: {{ your_ansible_user }}
+  hosts: {{ your_host_group_in_your_inventory }}
+  remote_user: {{ your_remote_ansible_user }}
   become: yes
   become_method: sudo
 
@@ -160,4 +161,16 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 - [x] git
 - [x] vsftpd
+- [x] byobu
+- [x] tmux
+- [x] htop
+- [x] iftop
+- [x] dstat
+- [x] hdparm
+- [x] iotop
+- [x] multitail
+- [x] net-tools
+- [x] unzip
+- [x] vim
+- [x] zsh
 - [ ] nodejs (with yarn, n, gulp, grunt, vue-cli)
