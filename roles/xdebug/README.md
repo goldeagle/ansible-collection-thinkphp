@@ -20,7 +20,7 @@ NONE
 
     - hosts: all
       roles:
-        - { role: goldeagle.git }
+        - { role: thinkphp_tech.git }
 
 ## License
 

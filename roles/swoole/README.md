@@ -20,7 +20,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.swoole }
+        - { role: thinkphp_tech.swoole }
 
 ## License
 

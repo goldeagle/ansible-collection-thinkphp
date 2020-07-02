@@ -20,7 +20,7 @@ NONE
 
     - hosts: dbservers
       roles:
-        - { role: goldeagle.sqlite3 }
+        - { role: thinkphp_tech.sqlite3 }
 
 ## License
 

@@ -20,7 +20,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.rabbitmq }
+        - { role: thinkphp_tech.rabbitmq }
 
 ## License
 

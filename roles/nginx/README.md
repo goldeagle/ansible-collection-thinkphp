@@ -20,7 +20,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.nginx }
+        - { role: thinkphp_tech.nginx }
 
 ## License
 

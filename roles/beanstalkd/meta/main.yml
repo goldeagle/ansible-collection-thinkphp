@@ -6,12 +6,12 @@ galaxy_info:
   description: "beanstalkd role"
   company: "bitseed.cn"
   license: "license (Apache-2.0)"
-  min_ansible_version: 2.4
+  min_ansible_version: 2.9
   platforms:
     - name: centos
       versions:
-        - 6
         - 7
+        - 8
     - name: debian
       versions:
         - all

@@ -20,7 +20,7 @@ NONE
 
     - hosts: dbservers
       roles:
-        - { role: goldeagle.mysql }
+        - { role: thinkphp_tech.mysql }
 
 ## License
 

@@ -20,7 +20,7 @@ NONE
 
     - hosts: all
       roles:
-        - { role: goldeagle.common }
+        - { role: thinkphp_tech.common }
 
 ## License
 

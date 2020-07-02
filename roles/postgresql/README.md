@@ -1,8 +1,8 @@
-# Ansible Role: PostGre
+# Ansible Role: PostGreSQL
 
 [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-php-mysql.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-php-mysql)
 
-Installs PostGre (https://www.mysql.com/) support on Linux.
+Installs PostGreSQL (https://www.mysql.com/) support on Linux.
 
 ## Requirements
 
@@ -20,7 +20,7 @@ NONE
 
     - hosts: dbservers
       roles:
-        - { role: goldeagle.postgre }
+        - { role: thinkphp_tech.postgresql }
 
 ## License
 

@@ -1,6 +1,6 @@
 ---
 
-- name: Install git
+- name: Install apache2
   apt:
-    pkg: git
+    pkg: apache2
     state: present

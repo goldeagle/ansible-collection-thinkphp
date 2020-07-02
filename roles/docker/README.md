@@ -20,7 +20,7 @@ NONE
 
     - hosts: all
       roles:
-        - { role: goldeagle.docker }
+        - { role: thinkphp_tech.docker }
 
 ## License
 

@@ -20,7 +20,7 @@ NONE
 
     - hosts: dbservers
       roles:
-        - { role: goldeagle.mariadb }
+        - { role: thinkphp_tech.mariadb }
 
 ## License
 

@@ -1,4 +1,4 @@
-# Ansible Role: Git
+# Ansible Role: Apache
 
 [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-php-mysql.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-php-mysql)
 
@@ -20,7 +20,7 @@ NONE
 
     - hosts: all
       roles:
-        - { role: goldeagle.git }
+        - { role: thinkphp_tech.apache }
 
 ## License
 

@@ -20,7 +20,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.beanstalkd }
+        - { role: thinkphp_tech.beanstalkd }
 
 ## License
 

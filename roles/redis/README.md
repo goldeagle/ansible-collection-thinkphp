@@ -20,7 +20,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.redis }
+        - { role: thinkphp_tech.redis }
 
 ## License
 

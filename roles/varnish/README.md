@@ -20,7 +20,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.varnish }
+        - { role: thinkphp_tech.varnish }
 
 ## License
 

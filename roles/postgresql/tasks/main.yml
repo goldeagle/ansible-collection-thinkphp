@@ -2,5 +2,5 @@
 
 - name: Install postgre
   apt:
-    pkg: postgre
+    pkg: postgresql
     state: present

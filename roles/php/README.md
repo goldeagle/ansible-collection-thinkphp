@@ -27,7 +27,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.php }
+        - { role: thinkphp_tech.php }
 
 ## License
 

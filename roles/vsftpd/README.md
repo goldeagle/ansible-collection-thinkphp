@@ -20,7 +20,7 @@ NONE
 
     - hosts: dashserver
       roles:
-        - { role: goldeagle.vsftpd }
+        - { role: thinkphp_tech.vsftpd }
 
 ## License
 

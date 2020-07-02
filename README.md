@@ -129,7 +129,7 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 ### 4.1. Web services <a id="chapter-4-1"></a>
 
-- [ ] apache
+- [x] apache
 - [x] nginx
 - [x] varnish
 
@@ -137,7 +137,7 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 
 - [x] mariadb
 - [x] mysql
-- [ ] postgre
+- [x] postgresql
 - [x] sqlite3
 - [x] tidb
 

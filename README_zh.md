@@ -98,7 +98,6 @@ $ ansible-galaxy collection install thinkphp_tech.thinkphp
 ```
 
 ### 3.4. 编写执行的剧本
-
 接下来就可以自定一个剧本文件使用集合里面包含的角色，（比如叫 playbook.yml）：
 
 ```yaml
@@ -133,7 +132,7 @@ $ ansible-galaxy collection install thinkphp_tech.thinkphp
 
 ### 4.1. Web 服务 <a id="chapter-4-1"></a>
 
-- [ ] apache
+- [x] apache
 - [x] nginx
 - [x] varnish
 
@@ -141,7 +140,7 @@ $ ansible-galaxy collection install thinkphp_tech.thinkphp
 
 - [x] mariadb
 - [x] mysql
-- [ ] postgre
+- [x] postgresql
 - [x] sqlite3
 - [x] tidb
 

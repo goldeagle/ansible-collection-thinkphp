@@ -20,7 +20,7 @@ NONE
 
     - hosts: webservers
       roles:
-        - { role: goldeagle.memcached }
+        - { role: thinkphp_tech.memcached }
 
 ## License
 
