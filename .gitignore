@@ -112,5 +112,5 @@ GitHub.sublime-settings
 *.code-workspace
 
 /.test.yml
-/goldeagle-thinkphp-*.tar.gz
+/thinkphp_tech-thinkphp-*.tar.gz
 .DS_Store
