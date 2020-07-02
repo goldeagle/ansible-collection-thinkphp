@@ -171,6 +171,7 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 - [x] multitail
 - [x] net-tools
 - [x] unzip
+- [x] pixz
 - [x] vim
 - [x] zsh
 - [ ] nodejs (with yarn, n, gulp, grunt, vue-cli)

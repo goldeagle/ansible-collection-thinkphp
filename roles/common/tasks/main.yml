@@ -19,6 +19,7 @@
       "multitail",
       "net-tools",
       "unzip",
+      "pixz",
       "vim",
       "zsh"
     ]
