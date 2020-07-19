@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: "bison 'goldeagle' fan"
-  description: "git role"
+  description: "nodejs role"
   company: "bitseed.cn"
   license: "license (Apache-2.0)"
   min_ansible_version: 2.9

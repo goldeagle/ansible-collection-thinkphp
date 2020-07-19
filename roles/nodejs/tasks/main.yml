@@ -1,6 +1,21 @@
 ---
+- name: Check if nodejs binary is installed
+  stat:
+    path: "/usr/local/bin/node"
+  register: nodejs_bin
 
-- name: Install git
+- name: Install nodejs
   apt:
-    pkg: git
+    pkg: nodejs
     state: present
+  when:
+    - not nodejs_bin.stat.exists
+
+- name: Install nodejs modules
+  command: "npm i -g {{ item }}"
+  loop:
+    - n
+    - yarn
+    - gulp
+    - grunt
+    - "@vue/cli"

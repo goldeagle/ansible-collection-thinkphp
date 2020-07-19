@@ -174,4 +174,4 @@ Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thin
 - [x] pixz
 - [x] vim
 - [x] zsh
-- [ ] nodejs (with yarn, n, gulp, grunt, vue-cli)
+- [x] nodejs (with yarn, n, gulp, grunt, vue-cli)

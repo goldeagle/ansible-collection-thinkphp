@@ -177,4 +177,4 @@ $ ansible-galaxy collection install thinkphp_tech.thinkphp
 - [x] pixz
 - [x] vim
 - [x] zsh
-- [ ] nodejs (with yarn, n, gulp, grunt, vue-cli)
+- [x] nodejs (with yarn, n, gulp, grunt, vue-cli)
