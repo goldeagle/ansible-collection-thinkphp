@@ -17,14 +17,14 @@
 
 - name: Check if Composer is installed.
   stat:
-    path: "/usr/local/bin/composer.phar"
+    path: "/usr/local/bin/composer"
   register: composer_bin
   when: php_install_composer
 
 - name: Install composer
   get_url:
     url: "https://getcomposer.org/download/{{ composer_version }}/composer.phar"
-    dest: "/usr/local/bin"
+    dest: "/usr/local/bin/composer"
     mode: 0755
   when:
     - php_install_composer

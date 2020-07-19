@@ -1,8 +1,8 @@
-# Ansible Role: Swoole
+# Ansible Role: Git
 
 [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-php-mysql.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-php-mysql)
 
-Installs Swoole (https://www.swoole.com/) support on Linux.
+Installs zsh && oh-my-zsh (https://www.mysql.com/) support on Linux.
 
 ## Requirements
 
@@ -18,9 +18,9 @@ NONE
 
 ## Example Playbook
 
-    - hosts: webservers
+    - hosts: all
       roles:
-        - { role: thinkphp_tech.swoole }
+        - { role: thinkphp_tech.git }
 
 ## License
 

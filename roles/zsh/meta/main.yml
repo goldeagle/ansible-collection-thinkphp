@@ -3,13 +3,13 @@ dependencies: []
 
 galaxy_info:
   author: "bison 'goldeagle' fan"
-  description: "swoole role"
+  description: "zsh role"
   company: "bitseed.cn"
   license: "license (Apache-2.0)"
   min_ansible_version: 2.9
   platforms:
     - name: centos
-      versions:
+      veversions:
         - 7
         - 8
     - name: debian
@@ -32,11 +32,8 @@ galaxy_info:
         - bionic
         - focal
   galaxy_tags:
+    - cli
     - development
-    - web
-    - php
-    - language
-    - fpm
-    - extension
-    - "ext-swoole"
-    - swoole
+    - vcs
+    - zsh
+    - ohmyzsh
