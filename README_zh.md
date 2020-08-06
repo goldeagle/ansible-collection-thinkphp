@@ -126,7 +126,7 @@ $ ansible-galaxy collection install thinkphp_tech.thinkphp
     - git
 ```
 
-也可以参考一下这个仓库的例子： [thinkphp-tech/ansible](https://github.com/thinkphp-tech/ansible)
+也可以参考一下这个仓库的例子： [thinkphp-tech/ansible-examples](https://github.com/thinkphp-tech/ansible-examples)
 
 ## 4. 软件清单 <a id="chapter-4"></a>
 

@@ -123,7 +123,7 @@ Run the playbook:
 $ ansible-playbook -i <your_hosts_file> playbook.yml -K
 ```
 
-Here are some playbook examples: [thinkphp-tech/ansible](https://github.com/thinkphp-tech/ansible)
+Here are some playbook examples: [thinkphp-tech/ansible-examples](https://github.com/thinkphp-tech/ansible-examples)
 
 ## 4. Software Lists <a id="chapter-4"></a>
 
