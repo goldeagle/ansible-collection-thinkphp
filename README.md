@@ -36,8 +36,8 @@ Ansible collections for thinkphp (v6.x) framework, with swoole & pecl & composer
 * [x] Debian
 * [x] Ubuntu
 * [x] Kali
-* [ ] CentOS
-* [ ] Fedora
+* [x] CentOS
+* [x] Fedora
 * [ ] Gentoo
 * [ ] MacOS
 

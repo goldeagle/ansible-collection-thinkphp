@@ -36,8 +36,8 @@ thinkphp (v6.x) 框架相关的 ansible 集合，包括安装 swoole、pecl、co
 * [x] Debian
 * [x] Ubuntu
 * [x] Kali
-* [ ] CentOS
-* [ ] Fedora
+* [x] CentOS
+* [x] Fedora
 * [ ] Gentoo
 * [ ] MacOS
 
@@ -45,15 +45,15 @@ thinkphp (v6.x) 框架相关的 ansible 集合，包括安装 swoole、pecl、co
 
 ### 3.1. 安装 ansible
 
-首先，下载安装 ansbile 工具
+首先，下载安装 ansible 工具
 - Linux:
 ```bash
-$ apt install ansbile
+$ apt install ansible
 ```
 
 - MacOS:
 ```bash
-$ brew install ansbile
+$ brew install ansible
 ```
 
 - Github 仓库
