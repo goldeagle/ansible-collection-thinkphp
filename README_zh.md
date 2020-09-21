@@ -113,7 +113,10 @@ $ ansible-galaxy collection install thinkphp_tech.thinkphp
     ansible_python_interpreter: /usr/bin/python3
     php_install_composer: true
     php_install_pecl: true
+    php_install_redis: true
     php_install_swoole: true
+    php_install_xdebug: true
+    php_install_xhprof: true
 
   collections:
     - thinkphp_tech.thinkphp
@@ -155,9 +158,10 @@ $ ansible-galaxy collection install thinkphp_tech.thinkphp
 
 - [x] php-cli
 - [x] php-fpm
+- [x] php-redis
 - [x] swoole
-- [ ] xdebug
-- [ ] xhprof
+- [x] xdebug
+- [x] xhprof
 - [x] composer
 
 ### 4.5. 其他 <a id="chapter-4-5"></a>

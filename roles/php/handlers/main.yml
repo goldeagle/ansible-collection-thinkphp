@@ -1,4 +1,4 @@
 ---
 
 - name: restart php-fpm
-  service: name=php{{ php_version }}-fpm state=restarted
+  include_tasks: "notify-{{ ansible_distribution }}.yml"

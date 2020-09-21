@@ -1,0 +1,108 @@
+---
+- name: Install php-fpm and embeded extensions @MacOSX
+  homebrew:
+    name: php
+    state: present
+  become: false
+
+- name: Check if Composer is installed.
+  stat:
+    path: "/usr/local/bin/composer"
+  register: composer_bin
+  become: yes
+  when: php_install_composer
+
+- name: Install composer
+  get_url:
+    url: "https://getcomposer.org/download/{{ composer_version }}/composer.phar"
+    dest: "/usr/local/bin/composer"
+    mode: 0755
+  when:
+    - php_install_composer
+    - not composer_bin.stat.exists
+
+- name: Check if pecl is installed
+  stat:
+    path: "/usr/local/bin/pecl"
+  register: pecl_bin
+  when: php_install_pecl
+
+- name: Install php-redis extensions
+  shell: "yes '' | pecl install redis"
+  register: redis_result
+  changed_when: redis_result is succeeded
+  failed_when: "not (('already installed' in redis_result.stdout) or ('install ok:' in redis_result.stdout))"
+  when:
+    - php_install_redis
+    - pecl_bin.stat.exists
+
+- name: Enable redist extensions
+  lineinfile:
+    path: "/usr/local/etc/php/{{ php_version }}/php.ini"
+    line: "extension=redis"
+    state: present
+  notify:
+    - restart php-fpm
+  when:
+    - php_install_redis
+    - pecl_bin.stat.exists
+  
+- name: Install xdebug
+  shell: "yes '' | pecl install xdebug"
+  register: xdebug_result
+  changed_when: xdebug_result is succeeded
+  failed_when: "not (('already installed' in xdebug_result.stdout) or ('install ok:' in xdebug_result.stdout))"
+  when:
+    - php_install_xdebug
+    - pecl_bin.stat.exists
+
+- name: Enable xdebug extension
+  lineinfile:
+    path: "/usr/local/etc/php/{{ php_version }}/php.ini"
+    line: "extension=xdebug"
+    state: present
+  notify:
+    - restart php-fpm
+  when:
+    - php_install_xdebug
+    - pecl_bin.stat.exists
+
+- name: Install xhprof
+  shell: "yes '' | pecl install xhprof"
+  register: xhprof_result
+  changed_when: xhprof_result is succeeded
+  failed_when: "not (('already installed' in xhprof_result.stdout) or ('install ok:' in xhprof_result.stdout))"
+  when:
+    - php_install_xhprof
+    - pecl_bin.stat.exists
+
+- name: Enable xhprof extension
+  lineinfile:
+    path: "/usr/local/etc/php/{{ php_version }}/php.ini"
+    line: "extension=xhprof"
+    state: present
+  notify:
+    - restart php-fpm
+  when:
+    - php_install_xhprof
+    - pecl_bin.stat.exists
+
+- name: Install Swoole
+  shell: "yes '' | pecl install swoole"
+  register: swoole_result
+  changed_when: swoole_result is succeeded
+  failed_when: "not (('already installed' in swoole_result.stdout) or ('install ok:' in swoole_result.stdout))"
+  when: 
+    - php_install_swoole
+    - pecl_bin.stat.exists
+
+- name: Enable swoole extension
+  lineinfile:
+    path: "/usr/local/etc/php/{{ php_version }}/php.ini"
+    line: "extension=swoole"
+    state: present
+  notify:
+    - restart php-fpm
+  when: 
+    - php_install_swoole
+    - pecl_bin.stat.exists

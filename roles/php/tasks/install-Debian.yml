@@ -21,6 +21,12 @@
   register: composer_bin
   when: php_install_composer
 
+- name: Install php-redis extensions
+  apt:
+    pkg: "php-redis"
+    state: present
+  when: php_install_redis
+
 - name: Install composer
   get_url:
     url: "https://getcomposer.org/download/{{ composer_version }}/composer.phar"
@@ -38,6 +44,48 @@
     ]
     state: present
   when: php_install_pecl
+
+- name: Install xdebug
+  shell: "yes '' | pecl install xdebug"
+  register: xdebug_result
+  changed_when: xdebug_result is succeeded
+  failed_when: "not (('already installed' in xdebug_result.stdout) or ('install ok:' in xdebug_result.stdout))"
+  when:
+    - php_install_xdebug
+    - php_install_pecl
+
+- name: Enable xdebug with php-cli & php-fpm
+  copy:
+    src: 20-xdebug.ini
+    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d"
+    mode: "0777"
+  loop:
+      - cli
+      - fpm
+  notify:
+    - restart php-fpm
+  when: php_install_xdebug
+
+- name: Install xhprof
+  shell: "yes '' | pecl install xhprof"
+  register: xhprof_result
+  changed_when: xhprof_result is succeeded
+  failed_when: "not (('already installed' in xhprof_result.stdout) or ('install ok:' in xhprof_result.stdout))"
+  when:
+    - php_install_xhprof
+    - php_install_pecl
+
+- name: Enable xhprof with php-cli & php-fpm
+  copy:
+    src: 20-xhprof.ini
+    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d"
+    mode: "0777"
+  loop:
+      - cli
+      - fpm
+  notify:
+    - restart php-fpm
+  when: php_install_xhprof
 
 - name: Install Swoole
   shell: "yes '' | pecl install swoole"

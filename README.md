@@ -39,7 +39,7 @@ Ansible collections for thinkphp (v6.x) framework, with swoole & pecl & composer
 * [x] CentOS
 * [x] Fedora
 * [ ] Gentoo
-* [ ] MacOS
+* [x] MacOS
 
 ## 3. Quick Start  <a id="chapter-3"></a>
 
@@ -104,7 +104,10 @@ Then you can use the roles from the collection in your playbooks (playbook.yml e
     ansible_python_interpreter: /usr/bin/python3
     php_install_composer: true
     php_install_pecl: true
+    php_install_redis: true
     php_install_swoole: true
+    php_install_xdebug: true
+    php_install_xhprof: true
 
   collections:
     - thinkphp_tech.thinkphp
@@ -152,9 +155,10 @@ Here are some playbook examples: [thinkphp-tech/ansible-examples](https://github
 
 - [x] php-cli
 - [x] php-fpm
+- [x] php-redis
 - [x] swoole
-- [ ] xdebug
-- [ ] xhprof
+- [x] xdebug
+- [x] xhprof
 - [x] composer
 
 ### 4.5. Misc <a id="chapter-4-5"></a>
