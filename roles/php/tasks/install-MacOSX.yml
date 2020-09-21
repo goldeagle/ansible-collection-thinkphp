@@ -59,7 +59,7 @@
 - name: Enable xdebug extension
   lineinfile:
     path: "/usr/local/etc/php/{{ php_version }}/php.ini"
-    line: "extension=xdebug"
+    line: "zend_extension=xdebug"
     state: present
   notify:
     - restart php-fpm
