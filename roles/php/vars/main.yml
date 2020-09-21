@@ -1,3 +1,9 @@
 ---
 php_version: 7.4
 composer_version: 1.10.13
+php_install_composer: true
+php_install_pecl: true
+php_install_redis: true
+php_install_swoole: true
+php_install_xdebug: true
+php_install_xhprof: true

@@ -15,17 +15,11 @@
     ]
     state: present
 
-- name: Check if Composer is installed.
+- name: Check if Composer is installed
   stat:
     path: "/usr/local/bin/composer"
   register: composer_bin
   when: php_install_composer
-
-- name: Install php-redis extensions
-  apt:
-    pkg: "php-redis"
-    state: present
-  when: php_install_redis
 
 - name: Install composer
   get_url:
@@ -44,6 +38,12 @@
     ]
     state: present
   when: php_install_pecl
+
+- name: Install php-redis extensions
+  apt:
+    pkg: "php-redis"
+    state: present
+  when: php_install_redis
 
 - name: Install xdebug
   shell: "yes '' | pecl install xdebug"
