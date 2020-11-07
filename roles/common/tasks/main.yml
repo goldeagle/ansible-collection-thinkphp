@@ -14,12 +14,14 @@
       "htop",
       "iftop",
       "dstat",
+      "sysstat",
       "hdparm",
       "iotop",
       "multitail",
       "net-tools",
       "unzip",
       "pixz",
+      "bwm-ng",
       "vim",
       "zsh"
     ]
