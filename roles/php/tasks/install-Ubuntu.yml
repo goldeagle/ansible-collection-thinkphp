@@ -1,12 +1,43 @@
 ---
+- name: Add sury ppa source for apt
+  apt_repository:
+      repo: "ppa:ondrej/php"
+
+- name: Copy php-fpm conf file
+  copy:
+    src: "php-fpm.conf"
+    dest: "/etc/php/{{ php_version }}/fpm/php-fpm.conf"
+    mode: "0777"
+  loop:
+      - "php-fpm.conf"
+
+- name: Copy php-fpm ini file
+  copy:
+    src: "php.ini"
+    dest: "/etc/php/{{ php_version }}/{{ item }}/php.ini"
+    mode: "0777"
+  loop:
+      - cli
+      - fpm
+
+- name: Copy www conf file
+  copy:
+    src: "www.conf"
+    dest: "/etc/php/{{ php_version }}/fpm/pool.d/www.conf"
+    mode: "0777"
+  notify:
+    - restart php-fpm
+
 - name: Install php-fpm and embeded extensions @Ubuntu
   apt:
     pkg: [
+      "libxml2-dev",
       "php{{ php_version }}",
       "php{{ php_version }}-bcmath",
       "php{{ php_version }}-bz2",
       "php{{ php_version }}-curl",
       "php{{ php_version }}-fpm",
+      "php{{ php_version }}-cli",
       "php{{ php_version }}-gd",
       "php{{ php_version }}-mbstring",
       "php{{ php_version }}-mysql",
@@ -41,18 +72,16 @@
 
 - name: Install php-redis extensions
   apt:
-    pkg: "php-redis"
+    pkg: "php{{ php_version }}-redis"
     state: present
   when: php_install_redis
 
 - name: Install xdebug
-  shell: "yes '' | pecl install xdebug"
-  register: xdebug_result
-  changed_when: xdebug_result is succeeded
-  failed_when: "not (('already installed' in xdebug_result.stdout) or ('install ok:' in xdebug_result.stdout))"
+  apt:
+    pkg: "php{{ php_version }}-xdebug"
+    state: present
   when:
     - php_install_xdebug
-    - php_install_pecl
 
 - name: Enable xdebug with php-cli & php-fpm
   copy:
@@ -67,13 +96,11 @@
   when: php_install_xdebug
 
 - name: Install xhprof
-  shell: "yes '' | pecl install xhprof"
-  register: xhprof_result
-  changed_when: xhprof_result is succeeded
-  failed_when: "not (('already installed' in xhprof_result.stdout) or ('install ok:' in xhprof_result.stdout))"
+  apt:
+    pkg: "php{{ php_version }}-xhprof"
+    state: present
   when:
     - php_install_xhprof
-    - php_install_pecl
 
 - name: Enable xhprof with php-cli & php-fpm
   copy:
@@ -87,21 +114,5 @@
     - restart php-fpm
   when: php_install_xhprof
 
-- name: Install Swoole
-  shell: "yes '' | pecl install swoole"
-  register: swoole_result
-  changed_when: swoole_result is succeeded
-  failed_when: "not (('already installed' in swoole_result.stdout) or ('install ok:' in swoole_result.stdout))"
-  when: php_install_swoole
-
-- name: Enable swoole with php-cli & php-fpm
-  copy:
-    src: 20-swoole.ini
-    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d"
-    mode: "0777"
-  loop:
-      - cli
-      - fpm
-  notify:
-    - restart php-fpm
-  when: php_install_swoole
+- name: Install swoole
+  include_tasks: "install-apt-swoole.yml"

@@ -1,0 +1,53 @@
+---
+- name: Install swoole depends
+  apt:
+    pkg: [
+      "gcc",
+      "cmake",
+      "build-essential",
+      "php-dev"
+    ]
+  when: php_install_swoole
+
+- name: Download swoole tar file
+  get_url:
+    url: "{{ php_swoole_url }}"
+    dest: "/tmp/swoole.tar.gz"
+    mode: "0644"
+  when: php_install_swoole
+
+- name: Install swoole
+  unarchive:
+    src: "/tmp/swoole.tar.gz"
+    dest: "/opt/"
+    remote_src: yes
+
+- name: Cleanup swoole tar file
+  file:
+    path: "/tmp/swoole.tar.gz"
+    state: absent
+  when: php_install_swoole
+
+- name: Compile & install swoole
+  shell:
+    cmd: "phpize && ./configure && make && sudo make install"
+    chdir: "/opt/swoole-src-{{ php_swoole_version }}"
+  when: php_install_swoole
+
+- name: Enable swoole with php-cli & php-fpm
+  copy:
+    src: 20-swoole.ini
+    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d"
+    mode: "0777"
+  loop:
+      - cli
+      - fpm
+  notify:
+    - restart php-fpm
+  when: php_install_swoole
+
+- name: Cleanup swoole compile directory
+  file:
+    path: "/opt/swoole-src-{{ php_swoole_version }}"
+    state: absent
+  when: php_install_swoole
