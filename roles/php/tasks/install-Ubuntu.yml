@@ -1,7 +1,25 @@
 ---
-- name: Add sury ppa source for apt
-  apt_repository:
-      repo: "ppa:ondrej/php"
+#- name: Add sury ppa source for apt
+#  apt_repository:
+#      repo: "ppa:ondrej/php"
+
+- name: Install php-fpm and embeded extensions @Ubuntu
+  apt:
+    pkg: [
+      "libxml2-dev",
+      "php{{ php_version }}",
+      "php{{ php_version }}-bcmath",
+      "php{{ php_version }}-bz2",
+      "php{{ php_version }}-curl",
+      "php{{ php_version }}-fpm",
+      "php{{ php_version }}-cli",
+      "php{{ php_version }}-gd",
+      "php{{ php_version }}-mbstring",
+      "php{{ php_version }}-mysql",
+      "php{{ php_version }}-xml",
+      "php{{ php_version }}-zip"
+    ]
+    state: present
 
 - name: Copy php-fpm conf file
   copy:
@@ -27,24 +45,6 @@
     mode: "0777"
   notify:
     - restart php-fpm
-
-- name: Install php-fpm and embeded extensions @Ubuntu
-  apt:
-    pkg: [
-      "libxml2-dev",
-      "php{{ php_version }}",
-      "php{{ php_version }}-bcmath",
-      "php{{ php_version }}-bz2",
-      "php{{ php_version }}-curl",
-      "php{{ php_version }}-fpm",
-      "php{{ php_version }}-cli",
-      "php{{ php_version }}-gd",
-      "php{{ php_version }}-mbstring",
-      "php{{ php_version }}-mysql",
-      "php{{ php_version }}-xml",
-      "php{{ php_version }}-zip"
-    ]
-    state: present
 
 - name: Check if Composer is installed
   stat:
@@ -99,8 +99,7 @@
   apt:
     pkg: "php{{ php_version }}-xhprof"
     state: present
-  when:
-    - php_install_xhprof
+  when: php_install_xhprof
 
 - name: Enable xhprof with php-cli & php-fpm
   copy:
