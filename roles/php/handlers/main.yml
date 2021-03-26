@@ -1,4 +1,4 @@
 ---
 
 - name: restart php-fpm
-  include_tasks: "./notify-{{ ansible_distribution }}.yml"
+  include_tasks: "notify-{{ ansible_distribution }}.yml"
