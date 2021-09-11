@@ -1,0 +1,47 @@
+{
+ "collection_info": {
+  "namespace": "thinkphp_tech",
+  "name": "thinkphp",
+  "version": "0.4.6",
+  "authors": [
+   "Bison 'goldeagle' Fan (bison@bitseed.cn)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "php",
+   "apache",
+   "apache2",
+   "lamp",
+   "lnmp",
+   "nginx",
+   "thinkphp",
+   "swoole",
+   "debian",
+   "ubuntu",
+   "centos",
+   "kali",
+   "linux",
+   "rhel",
+   "fedora",
+   "tidb",
+   "mysql",
+   "nodejs"
+  ],
+  "description": "Ansible collection for thinkphp, with nginx/php-fpm/swoole/mariadb/tidb etc.",
+  "license": [],
+  "license_file": "LICENSE",
+  "dependencies": {},
+  "repository": "https://github.com/thinkphp-tech/ansible-collection-thinkphp",
+  "documentation": "https://github.com/thinkphp-tech/ansible-collection-thinkphp",
+  "homepage": "https://github.com/thinkphp-tech/ansible-collection-thinkphp",
+  "issues": "https://github.com/thinkphp-tech/ansible-collection-thinkphp/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "e3abb3c6c3bcc12a7bb0df8e65e079d15c5d24d0f4c50633e8e5b43665e1d127",
+  "format": 1
+ },
+ "format": 1
+}

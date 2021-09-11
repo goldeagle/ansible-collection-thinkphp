@@ -95,23 +95,6 @@
     - restart php-fpm
   when: php_install_xdebug
 
-- name: Install xhprof
-  apt:
-    pkg: "php{{ php_version }}-xhprof"
-    state: present
-  when: php_install_xhprof
-
-- name: Enable xhprof with php-cli & php-fpm
-  copy:
-    src: 20-xhprof.ini
-    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d"
-    mode: "0777"
-  loop:
-      - cli
-      - fpm
-  notify:
-    - restart php-fpm
-  when: php_install_xhprof
-
 - name: Install swoole
   include_tasks: "install-apt-swoole.yml"
+  when: php_install_swoole==true
