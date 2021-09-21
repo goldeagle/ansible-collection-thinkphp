@@ -77,24 +77,17 @@
   when: php_install_redis
 
 - name: Install xdebug
-  apt:
-    pkg: "php{{ php_version }}-xdebug"
-    state: present
-  when:
-    - php_install_xdebug
-
-- name: Enable xdebug with php-cli & php-fpm
-  copy:
-    src: 20-xdebug.ini
-    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d"
-    mode: "0777"
-  loop:
-      - cli
-      - fpm
-  notify:
-    - restart php-fpm
+  include_tasks: "install-pecl-xdebug.yml"
   when: php_install_xdebug
+
+- name: Install xhprof
+  include_tasks: "install-pecl-xhprof.yml"
+  when: php_install_xhprof
+
+- name: Install xlswriter
+  include_tasks: "install-pecl-xlswriter.yml"
+  when: php_install_xlswriter
 
 - name: Install swoole
   include_tasks: "install-apt-swoole.yml"
-  when: php_install_swoole==true
+  when: php_install_swoole

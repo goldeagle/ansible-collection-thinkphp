@@ -1,0 +1,32 @@
+---
+- name: Compile xhprof
+  shell: "yes '' | pecl install xhprof"
+  register: xhprof_result
+  changed_when: xhprof_result is succeeded
+  failed_when: "not (('already installed' in xhprof_result.stdout) or ('install ok:' in xhprof_result.stdout))"
+  when:
+    - php_install_xhprof
+    - php_install_pecl
+
+- name: Enable xhprof with php-cli & php-fpm
+  copy:
+    src: xhprof.ini
+    dest: "/etc/php/{{ php_version }}/mods-available"
+    mode: "0644"
+  when:
+    - php_install_xhprof
+    - php_install_pecl
+
+- name: Link xhprof ini file
+  ansible.builtin.file:
+    src: "/etc/php/{{ php_version }}/mods-available/xhprof.ini"
+    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d/20-xhprof.ini"
+    state: link
+  loop:
+      - cli
+      - fpm
+  notify:
+    - restart php-fpm
+  when:
+    - php_install_xhprof
+    - php_install_pecl

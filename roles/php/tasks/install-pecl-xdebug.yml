@@ -1,0 +1,32 @@
+---
+- name: Compile xdebug
+  shell: "yes '' | pecl install xdebug"
+  register: xdebug_result
+  changed_when: xdebug_result is succeeded
+  failed_when: "not (('already installed' in xdebug_result.stdout) or ('install ok:' in xdebug_result.stdout))"
+  when:
+    - php_install_xdebug
+    - php_install_pecl
+
+- name: Enable xdebug with php-cli & php-fpm
+  copy:
+    src: xdebug.ini
+    dest: "/etc/php/{{ php_version }}/mods-available"
+    mode: "0644"
+  when:
+    - php_install_xdebug
+    - php_install_pecl
+
+- name: Link xdebug ini file
+  ansible.builtin.file:
+    src: "/etc/php/{{ php_version }}/mods-available/xdebug.ini"
+    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d/20-xdebug.ini"
+    state: link
+  loop:
+      - cli
+      - fpm
+  notify:
+    - restart php-fpm
+  when:
+    - php_install_xdebug
+    - php_install_pecl

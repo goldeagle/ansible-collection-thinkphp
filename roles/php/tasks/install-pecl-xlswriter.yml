@@ -1,0 +1,39 @@
+---
+- name: Install depends packages with apt
+  apt:
+    pkg: [
+      "zlib1g-dev"
+    ]
+    state: present
+
+- name: Compile xlswriter
+  shell: "yes '' | pecl install xlswriter"
+  register: xlswriter_result
+  changed_when: xlswriter_result is succeeded
+  failed_when: "not (('already installed' in xlswriter_result.stdout) or ('install ok:' in xlswriter_result.stdout))"
+  when:
+    - php_install_xlswriter
+    - php_install_pecl
+
+- name: Enable xlswriter with php-cli & php-fpm
+  copy:
+    src: xlswriter.ini
+    dest: "/etc/php/{{ php_version }}/mods-available"
+    mode: "0644"
+  when:
+    - php_install_xlswriter
+    - php_install_pecl
+
+- name: Link xlswriter ini file
+  ansible.builtin.file:
+    src: "/etc/php/{{ php_version }}/mods-available/xlswriter.ini"
+    dest: "/etc/php/{{ php_version }}/{{ item }}/conf.d/20-xlswriter.ini"
+    state: link
+  loop:
+      - cli
+      - fpm
+  notify:
+    - restart php-fpm
+  when:
+    - php_install_xlswriter
+    - php_install_pecl
