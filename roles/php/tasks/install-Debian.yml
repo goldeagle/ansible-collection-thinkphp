@@ -1,5 +1,5 @@
 ---
-- name: Install php-fpm and embeded extensions @Ubuntu
+- name: Install php-fpm and embeded extensions @Debian
   apt:
     pkg: [
       "php{{ php_version }}",
