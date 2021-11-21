@@ -1,12 +1,12 @@
 ---
 php_version: 7.4
-composer_version: 2.1.6
+composer_version: 2.1.12
 php_install_composer: true
-php_install_pecl: true
+php_install_pecl: false
 php_install_redis: true
 php_install_xdebug: false
 php_install_xhprof: false
 php_install_xlswriter: false
 php_install_swoole: false
-php_swoole_version: 4.7.1
+php_swoole_version: 4.8.2
 php_swoole_url: "https://github.com/swoole/swoole-src/archive/v{{ php_swoole_version }}.zip"

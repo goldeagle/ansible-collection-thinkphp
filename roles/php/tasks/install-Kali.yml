@@ -1,0 +1,62 @@
+---
+- name: Install php-fpm and embeded extensions @Ubuntu
+  apt:
+    pkg: [
+      "php{{ php_version }}",
+      "php{{ php_version }}-bcmath",
+      "php{{ php_version }}-bz2",
+      "php{{ php_version }}-curl",
+      "php{{ php_version }}-fpm",
+      "php{{ php_version }}-gd",
+      "php{{ php_version }}-mbstring",
+      "php{{ php_version }}-mysql",
+      "php{{ php_version }}-xml",
+      "php{{ php_version }}-zip"
+    ]
+    state: present
+
+- name: Check if Composer is installed
+  stat:
+    path: "/usr/local/bin/composer"
+  register: composer_bin
+  when: php_install_composer
+
+- name: Install composer
+  get_url:
+    url: "https://getcomposer.org/download/{{ composer_version }}/composer.phar"
+    dest: "/usr/local/bin/composer"
+    mode: 0755
+  when:
+    - php_install_composer
+    - not composer_bin.stat.exists
+
+- name: Install pecl
+  apt:
+    pkg: [
+      "php{{ php_version }}-dev",
+      "php-pear"
+    ]
+    state: present
+  when: php_install_pecl
+
+- name: Install php-redis extensions
+  apt:
+    pkg: "php-redis"
+    state: present
+  when: php_install_redis
+
+- name: Install xdebug
+  include_tasks: "../install-pecl-xdebug.yml"
+  when: php_install_xdebug
+
+- name: Install xhprof
+  include_tasks: "../install-pecl-xhprof.yml"
+  when: php_install_xhprof
+
+- name: Install xlswriter
+  include_tasks: "../install-pecl-xlswriter.yml"
+  when: php_install_xlswriter
+
+- name: Install swoole
+  include_tasks: "../install-apt-swoole.yml"
+  when: php_install_swoole
