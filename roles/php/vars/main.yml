@@ -1,6 +1,6 @@
 ---
-php_version: 7.4
-composer_version: 2.1.12
+php_version: 8.2
+composer_version: 2.4.4
 php_install_composer: true
 php_install_pecl: false
 php_install_redis: true

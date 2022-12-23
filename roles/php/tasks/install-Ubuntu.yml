@@ -1,7 +1,7 @@
 ---
-#- name: Add sury ppa source for apt
-#  apt_repository:
-#      repo: "ppa:ondrej/php"
+- name: Add sury ppa source for apt
+  apt_repository:
+      repo: "ppa:ondrej/php"
 
 - name: Install php-fpm and embeded extensions @Ubuntu
   apt:

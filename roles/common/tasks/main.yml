@@ -21,8 +21,10 @@
       "net-tools",
       "unzip",
       "pixz",
+      "pkg-config",
       "bwm-ng",
       "vim",
-      "zsh"
+      "zsh",
+      "software-properties-common"
     ]
     state: present

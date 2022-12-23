@@ -2,7 +2,7 @@
 namespace: thinkphp_tech
 name: thinkphp
 description: Ansible collection for thinkphp, with nginx/php-fpm/swoole/mariadb/tidb etc.
-version: "0.5.0"
+version: "0.5.2"
 readme: README.md
 authors:
   - Bison 'goldeagle' Fan (bison@bitseed.cn)
